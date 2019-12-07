@@ -78,7 +78,7 @@
     }
 }
 
-@media not print
+@media screen
 {
     .tm-nav-item-link:hover
     {
