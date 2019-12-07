@@ -112,7 +112,7 @@ both           <b>spaces</b> and
                                 <dd>JavaScript is a scripting languages, primarily used on the Web.</dd>
                             </dl>
                             Select for learning
-                            <select>
+                            <select name="types">
                                 <option value="js">JS</option>
                                 <option value="html">HTML</option>
                                 <option value="css">CSS</option>
@@ -157,7 +157,7 @@ both           <b>spaces</b> and
                         <section id="blockquotes">
                             <h2>Blockquotes</h2>
                             <p>Let’s keep it simple. Italics are good to help set it off from the body text. Be sure to style the citation.</p>
-                            <blockquote>
+                            <blockquote cite="#">
                                 "So if you want to go fast, if you want to get done quickly, if you want your code to be easy to write, make it easy to read."
                                 <br>
                                 <a href="#">Robert C. Martin (Uncle Bob)</a>
@@ -165,21 +165,21 @@ both           <b>spaces</b> and
                         </section>
                         <hr>
                         <form action="#" method="post" id="registration">
-                            <label>Username:
-                                <input type="text">
+                            <label for="username">Username:
+                                <input type="text" name="username" id="username">
                             </label>
                             <br>
-                            <label>Email:
-                                <input type="email">
+                            <label for="mail">Email:
+                                <input type="email" name="mail" id="mail">
                             </label>
                             <br>
-                            <label>Password:
-                                <input type="password">
+                            <label for="pass">Password:
+                                <input type="password" name="pass" id="pass">
                             </label>
                             <br>
                             <textarea cols="23" rows="4"></textarea>
                             <br>
-                            <button>Submit</button>
+                            <button type="submit" name="submit">Submit</button>
                         </form>
                     </main>
                     <footer>&copy; Copyright Epam Systems</footer>
