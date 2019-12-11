@@ -1,0 +1,234 @@
+@mixin button {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: bold;
+	padding: 10px 40px;
+	cursor: pointer;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	background-color: $button-color;
+}
+
+@mixin link {
+	color: $font-color-secondary;
+}
+
+$font-sizes: (h1: 60px, h2: 40px, h3: 25px, h4: 20px);
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: $font-fam;
+	max-width: 1600px;
+	margin: 0 auto;
+	background-color: $bg-color;
+}
+
+.landing-logo {
+	display: flex;
+	align-items: flex-start;
+
+	p {
+		font-size: map-get($font-sizes,h4);
+		font-weight: bold;
+		display: flex;
+		flex-direction: column;
+		margin-left: 10px;
+		color: $font-color-primary;
+		align-items: center;
+
+		span {
+			font-size: 10px;
+		}
+	}
+}
+
+.header {
+	min-height: 600px;
+	border-bottom-right-radius: 40%;
+	background-image: $bg-img;
+	background-position: center;
+
+	.header-wrap {
+		width: 1280px;
+		margin: 0 auto;
+		padding-top: 15px;
+
+		.header_heading {
+			font-family: 'Source Sans Pro', sans-serif;
+			font-size: map-get($font-sizes,h1);
+			font-weight: bold;
+			line-height: 60px;
+			position: relative;
+			width: 50%;
+			margin-top: 50px;
+			color: $font-color-primary;
+
+			&:after {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				content: 'awesome';
+				cursor: text;
+				background-color: $mark-color;
+			}
+		}
+
+		.header_text {
+			line-height: 1.6;
+			margin-top: 20px;
+			white-space: pre-line;
+			color: $font-color-primary;
+		}
+
+		div:last-child {
+			width: 50%;
+			margin-top: 40px;
+			.header_button {
+				@include button;
+			}
+
+			.login {
+				font-weight: bold;
+				display: inline-block;
+				width: 60%;
+				text-align: center;
+				@include link;
+			}
+		}
+	}
+}
+
+.section {
+	width: 960px;
+	margin: 0 auto;
+
+	.section_text {
+		font-family: 'Source Sans Pro', sans-serif;
+		font-size: map-get($font-sizes,h2);
+		font-weight: bold;
+		position: relative;
+		padding: 50px 0;
+		text-align: center;
+		color: $font-color-primary;
+
+		&:after {
+			position: absolute;
+			right: 30%;
+			content: 'adventure';
+			cursor: text;
+			background-color: $mark-color;
+		}
+	}
+
+	.section_card_wrap {
+		width: 95%;
+		margin: 0 auto;
+
+		.section_card {
+			display: flex;
+			margin-bottom: 25px;
+			padding: 20px;
+			border-radius: 4px;
+			background-color: $card-footer-bg;
+
+			.section_card_img {
+				width: 100%;
+				border-radius: 4px;
+			}
+
+			.section_card_right_container {
+				display: flex;
+				flex-direction: column;
+				padding: 0 30px 0 50px;
+				align-items: center;
+				justify-content: space-around;
+
+				.section_card_heading {
+					font-size: 20px;
+					font-weight: 600;
+					text-align: center;
+					color: #fff;
+				}
+
+				.section_card_text,
+				.section_link {
+					color: $font-color-secondary;
+				}
+			}
+		}
+	}
+
+	.section_banner {
+		position: relative;
+		bottom: -60px;
+		display: flex;
+		padding: 30px 0;
+		border-radius: 4px;
+		background-image: linear-gradient(to right, $gradient-left, $gradient-rigth);
+		justify-content: space-around;
+		align-items: center;
+
+		.section_banner_heading {
+			font-family: 'Source Sans Pro', sans-serif;
+			font-size: map-get($font-sizes,h3);
+			font-weight: bold;
+			position: relative;
+			margin-bottom: 10px;
+			color: $font-color-primary;
+
+			&:after {
+				position: absolute;
+				right: 55%;
+				content: 'start';
+				cursor: text;
+				background-color: $mark-color;
+			}
+		}
+
+		.section_banner_text {
+			font-size: 12px;
+			color: $font-color-secondary;
+		}
+
+		.section_banner_button {
+			@include button;
+		}
+	}
+}
+
+.footer {
+	display: flex;
+	padding: 50px 0;
+	color: $font-color-secondary;
+	background-color: $card-footer-bg;
+
+	.footer-wrap {
+		display: flex;
+		width: 1280px;
+		margin: 0 auto;
+		padding-top: 60px;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.footer_text {
+		font-size: 14px;
+		line-height: 1.6;
+		width: 320px;
+	}
+
+	.footer-cr {
+		font-size: 14px;
+	}
+}
+
+.footer_logo {
+	@extend .landing-logo;
+	p {
+		color: $font-color-secondary;
+	}
+}
