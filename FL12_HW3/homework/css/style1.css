@@ -26,9 +26,10 @@ body {
   min-height: 600px;
   border-bottom-right-radius: 40%;
   background-image: url("../img/m-h-day.jpg");
-  background-position: center; }
+  background-position: center;
+  background-size: cover; }
   .header .header-wrap {
-    width: 1280px;
+    max-width: 1280px;
     margin: 0 auto;
     padding-top: 15px; }
     .header .header-wrap .header_heading {
@@ -72,7 +73,7 @@ body {
         color: #c0c3ce; }
 
 .section {
-  width: 960px;
+  max-width: 900px;
   margin: 0 auto; }
   .section .section_text {
     font-family: 'Source Sans Pro', sans-serif;
@@ -84,7 +85,7 @@ body {
     color: #2c2f3c; }
     .section .section_text:after {
       position: absolute;
-      right: 30%;
+      right: 29%;
       content: 'adventure';
       cursor: text;
       background-color: #14a0c7; }
