@@ -236,6 +236,15 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+    .header_post {
+        height: 350px;
+    }
+
+    .header_post article {
+        bottom: 50px;
+        width: 100%;
+    }
+
     .secondary_text {
         font-size: .8em;
     }
@@ -320,6 +329,12 @@ footer {
 }
 
 @media screen and (max-width: 480px) {
+    .header_post article {
+        bottom: 50px;
+        left: 20px;
+        width: 90%;
+    }
+
     main {
         flex-wrap: wrap;
     }
