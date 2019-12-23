@@ -6,7 +6,6 @@ if (isNaN(a) || isNaN(b) || isNaN(c) || a === 0) {
    alert('Invalid input data');
 } else {
     let d = b * b - 4 * a * c;
-    console.log(d);
     if (d < 0) {
         alert('No solutin, D < 0');
     } else if (d === 0) {
