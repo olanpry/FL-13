@@ -1,9 +1,9 @@
 function countNumbers(str) {
-  let newstr = str.split('').filter(item => !isNaN(item)).sort();
+  let newstr = str.split('').filter(item => !isNaN(item));
   let obj = {};
   for (let i = 0; i < newstr.length; i++) {
-    if (Object.prototype.hasOwnProperty.call(obj, newstr[i])) {
-      obj[newstr[i]] = obj[newstr[i]] + 1;
+    if (newstr[i] in obj) {
+      obj[newstr[i]]++;
     } else {
       obj[newstr[i]] = 1;
     }
