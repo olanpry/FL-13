@@ -8,7 +8,7 @@ function countNumbers(str) {
       obj[newstr[i]] = 1;
     }
   }
-  return obj;
+  return JSON.stringify(obj);
 }
 
 countNumbers('erer384jj4444666888jfd123');
