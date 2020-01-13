@@ -14,19 +14,17 @@ function executeforEach(arr, callback) {
 
 function mapArray(arr, callback) {
   let mapArr = [];
-  for (let item of arr) {
-    mapArr.push(callback(+item));
-  }
+  executeforEach(arr, item => mapArr.push(callback(+item)));
   return mapArr;
 }
 
 function filterArray(arr, callback) {
   let filterArr = [];
-  for (let item of arr) {
+  executeforEach(arr, function(item) {
     if (callback(item)) {
       filterArr.push(item);
     }
-  }
+  });
   return filterArr;
 }
 
@@ -39,10 +37,8 @@ function flipOver(str) {
 }
 
 function makeListFromRange(arr) {
-  let min = Math.min(...arr);
-  let max = Math.max(...arr);
   let rangeOfArray = [];
-  for (let i = min; i <= max; i++) {
+  for (let i = Math.min(...arr); i <= Math.max(...arr); i++) {
     rangeOfArray.push(i);
   }
   return rangeOfArray;
@@ -55,22 +51,14 @@ const actors = [
 
 function getArrayOfKeys(arr, key) {
   let arrOfKeys = [];
-  for (let item of arr) {
-    arrOfKeys.push(item[key]);
-  }
+  executeforEach(arr, item => arrOfKeys.push(item[key]));
   return arrOfKeys;
 }
 
 const THIRTY = 30;
 
 function substitute(arr) {
-  return mapArray(arr, function(el) {
-    if (el < THIRTY) {
-      return '*';
-    } else {
-      return el;
-    }
-  });
+  return mapArray(arr, item => item < THIRTY ? '*' : item);
 }
 
 const YEAR = 2019;
