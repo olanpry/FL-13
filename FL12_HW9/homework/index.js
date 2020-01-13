@@ -44,11 +44,6 @@ function makeListFromRange(arr) {
   return rangeOfArray;
 }
 
-const actors = [
-  { name: 'tommy', age: 36 },
-  { name: 'lee', age: 28 }
-];
-
 function getArrayOfKeys(arr, key) {
   let arrOfKeys = [];
   executeforEach(arr, item => arrOfKeys.push(item[key]));
@@ -60,10 +55,6 @@ const THIRTY = 30;
 function substitute(arr) {
   return mapArray(arr, item => item < THIRTY ? '*' : item);
 }
-
-const YEAR = 2019;
-const DAY = 2;
-const date = new Date(YEAR, 0, DAY);
 
 function getPastDay(date, day) {
   let newday = new Date(date.getFullYear(), date.getMonth(), date.getDate());
