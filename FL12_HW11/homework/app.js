@@ -39,18 +39,13 @@ const rootNode = document.getElementById('root');
 
 function createTree(container, data) {
   let ul = document.createElement('ul');
-
   for (let obj of data) {
     let li = document.createElement('li');
     if (obj.folder) {
       li.className = 'folder';
-      li.innerHTML =
-        '<i class="material-icons folder_icon" id="open">folder</i>' +
-        obj.title;
+      li.innerHTML = '<i class="material-icons folder_icon" id="open">folder</i>' + obj.title;
     } else {
-      li.innerHTML =
-        '<i class="material-icons insert_drive_file">insert_drive_file</i>' +
-        obj.title;
+      li.innerHTML = '<i class="material-icons insert_drive_file">insert_drive_file</i>' + obj.title;
     }
     ul.append(li);
     if (obj.children) {
@@ -58,11 +53,15 @@ function createTree(container, data) {
     }
     if (obj.folder === true && !obj.children) {
       let p = document.createElement('p');
+      p.className = 'closed';
       p.innerHTML = '<i>This folder is empty!</i>';
       ul.append(p);
     }
   }
   container.append(ul);
+  if(ul.parentElement.tagName === 'UL'){
+    ul.classList.toggle('closed');
+  }
 }
 
 createTree(rootNode, structure);
@@ -72,9 +71,11 @@ for (let i = 0; i < elem.length; i++) {
   elem[i].addEventListener('click', openFolder);
 }
 function openFolder() {
+  event.target.nextSibling.classList.remove('closed');
   event.target.nextSibling.classList.toggle('open');
   event.target.firstChild.innerHTML = 'folder_open';
   if (!event.target.nextSibling.classList.contains('open')) {
+    event.target.nextSibling.classList.toggle('closed');
     event.target.firstChild.innerHTML = 'folder';
   }
 }

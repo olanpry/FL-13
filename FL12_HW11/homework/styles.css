@@ -27,14 +27,13 @@ li:hover {
 
 .insert_drive_file {
   color: gray;
-  margin-right: 5px;
-}
-
-li ~ ul,
-li ~ p {
-  display: none;
+  margin-right: 3px;
 }
 
 .open {
   display: block;
+}
+
+.closed{
+	display: none;
 }
