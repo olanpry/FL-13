@@ -1,39 +1,39 @@
 * {
-  margin: 0;
+    margin: 0;
 }
 
 body {
-  font-size: 19px;
-  line-height: 1.5;
-  cursor: pointer;
-  margin-top: 20px;
-  width: 500px;
+    font-size: 19px;
+    line-height: 1.5;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 500px;
 }
 
 li {
-  list-style: none;
-  display: flex;
-  align-items: center;
+    list-style: none;
+    display: flex;
+    align-items: center;
 }
 
 li:hover {
-  background-color: lightgray;
+    background-color: lightgray;
 }
 
 .folder_icon {
-  color: orange;
-  margin-right: 3px;
+    color: orange;
+    margin-right: 3px;
 }
 
 .insert_drive_file {
-  color: gray;
-  margin-right: 3px;
+    color: gray;
+    margin-right: 3px;
 }
 
 .open {
-  display: block;
+    display: block;
 }
 
-.closed{
-  display: none;
+.closed {
+    display: none;
 }
