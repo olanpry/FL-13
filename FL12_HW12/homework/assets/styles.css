@@ -1,1 +1,81 @@
+body {
+  font-family: sans-serif;
+}
 
+.flashcard-conatiner {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100px;
+  margin-top: 10px;
+}
+
+.flashcard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid red;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+button {
+  cursor: pointer;
+  background-color: #fff;
+  padding: 5px 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  outline: none;
+  margin-right: 5px;
+}
+
+.name-input {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.term-input {
+  font-size: 1.5em;
+}
+
+.definition-input {
+  font-size: 1em;
+  font-style: italic;
+}
+
+p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+}
+
+.modify-page {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.modify-page input,
+.modify-page button {
+  margin-bottom: 10px;
+}
+
+.hide {
+  display: none;
+}
+
+.done {
+  border: 1px solid green;
+}
+
+input {
+  padding: 5px 10px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  outline: none;
+}
