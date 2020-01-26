@@ -38,10 +38,7 @@ let flashcardContainer = document.createElement('div');
 flashcardContainer.classList.add('flashcard-conatiner');
 
 addNewButton.onclick = function() {
-  mainPage.classList.add('hide');
-  addNewSetPage.classList.remove('hide');
   mainPage.append(flashcardContainer);
-
   location.hash = ADD_NEW_HASH;
 };
 
@@ -80,9 +77,7 @@ term.insertAdjacentHTML('afterend', '<br>');
 termContainer.append(definition);
 
 addTermsBtn.onclick = function() {
-  termContainer.classList.contains('hide')
-    ? termContainer.classList.remove('hide')
-    : termContainer.classList.add('hide');
+  termContainer.classList.toggle('hide');
 };
 
 let id = 1;
@@ -103,7 +98,11 @@ saveBtn.onclick = function() {
         '<p class="definition-input">' + definition.value + '</p>';
     }
 
-    flashcardContainer.append(flashcard);
+    if (document.querySelector('.done')) {
+      document.querySelector('.done').before(flashcard);
+    } else {
+      flashcardContainer.append(flashcard);
+    }
 
     nameInput.value = '';
     term.value = '';
@@ -112,8 +111,6 @@ saveBtn.onclick = function() {
       termContainer.classList.add('hide');
     }
 
-    mainPage.classList.remove('hide');
-    addNewSetPage.classList.add('hide');
     location.hash = MAIN_PAGE_HASH;
 
     let markbtn = document.createElement('button');
@@ -140,8 +137,6 @@ saveBtn.onclick = function() {
 
     edit.onclick = function() {
       location.hash = MOD_PAGE_HASH + id;
-      mainPage.classList.add('hide');
-      modifyExistSetPage.classList.remove('hide');
       let target = event.target.parentNode.parentNode;
       let editName = document.createElement('input');
       editName.setAttribute('type', 'text');
@@ -154,8 +149,6 @@ saveBtn.onclick = function() {
       newSave.addEventListener('click', newsave);
       newCancel.onclick = function() {
         location.hash = MAIN_PAGE_HASH;
-        mainPage.classList.remove('hide');
-        modifyExistSetPage.classList.add('hide');
         modifyExistSetPage.removeChild(editName);
         modifyExistSetPage.removeChild(editTerm);
         modifyExistSetPage.removeChild(editDef);
@@ -185,8 +178,6 @@ saveBtn.onclick = function() {
           target.querySelector('.definition-input').innerHTML = editDef.value;
         }
         location.hash = MAIN_PAGE_HASH;
-        mainPage.classList.remove('hide');
-        modifyExistSetPage.classList.add('hide');
         modifyExistSetPage.removeChild(editName);
         modifyExistSetPage.removeChild(editTerm);
         modifyExistSetPage.removeChild(editDef);
@@ -202,7 +193,30 @@ cancelBtn.onclick = function() {
   if (termContainer) {
     termContainer.classList.add('hide');
   }
-  mainPage.classList.remove('hide');
-  addNewSetPage.classList.add('hide');
   location.hash = MAIN_PAGE_HASH;
 };
+
+window.addEventListener('hashchange', function() {
+  switch (location.hash.split('/')[1]) {
+    case 'mainpage':
+      mainPage.classList.remove('hide');
+      addNewSetPage.classList.add('hide');
+      modifyExistSetPage.classList.add('hide');
+      break;
+    case 'addnew':
+      mainPage.classList.add('hide');
+      modifyExistSetPage.classList.add('hide');
+      addNewSetPage.classList.remove('hide');
+      break;
+    case 'modify':
+      mainPage.classList.add('hide');
+      addNewSetPage.classList.add('hide');
+      modifyExistSetPage.classList.remove('hide');
+      break;
+    default:
+      mainPage.classList.remove('hide');
+      addNewSetPage.classList.add('hide');
+      modifyExistSetPage.classList.add('hide');
+      break;
+  }
+});
