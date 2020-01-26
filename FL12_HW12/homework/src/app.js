@@ -32,14 +32,12 @@ rootNode.append(modifyExistSetPage);
 
 let addNewButton = document.createElement('button');
 addNewButton.innerHTML = 'Add new';
-// addNewButton.classList.add('add-new-btn');
 mainPage.append(addNewButton);
 
 let flashcardContainer = document.createElement('div');
 flashcardContainer.classList.add('flashcard-conatiner');
 
 addNewButton.onclick = function() {
-  // move to add new set page with hash #...
   mainPage.classList.add('hide');
   addNewSetPage.classList.remove('hide');
   mainPage.append(flashcardContainer);
@@ -53,15 +51,12 @@ nameInput.setAttribute('placeholder', 'Name');
 
 let addTermsBtn = document.createElement('button');
 addTermsBtn.innerHTML = 'Add Terms';
-// addTermsBtn.classList.add('add-terms');
 
 let saveBtn = document.createElement('button');
 saveBtn.innerHTML = 'Save';
-// saveBtn.classList.add('save-btn');
 
 let cancelBtn = document.createElement('button');
 cancelBtn.innerHTML = 'Cancel';
-// cancelBtn.classList.add('cancel-btn', 'btn');
 
 addNewSetPage.append(nameInput);
 addNewSetPage.append(addTermsBtn);
@@ -120,19 +115,14 @@ saveBtn.onclick = function() {
     mainPage.classList.remove('hide');
     addNewSetPage.classList.add('hide');
     location.hash = MAIN_PAGE_HASH;
-    // redirect to main page
 
     let markbtn = document.createElement('button');
     markbtn.innerHTML = 'Done';
-    // markbtn.classList.add('btn', 'mark-btn');
     let remove = document.createElement('button');
     remove.innerHTML = 'Remove';
-    // remove.classList.add('btn', 'remove-btn');
     let edit = document.createElement('button');
     edit.innerHTML = 'Edit';
-    // edit.classList.add('btn', 'edit-btn');
     let btncontainer = document.createElement('div');
-    // btncontainer.classList.add('btn-container');
     btncontainer.append(markbtn);
     btncontainer.append(edit);
     btncontainer.append(remove);
@@ -149,7 +139,6 @@ saveBtn.onclick = function() {
     };
 
     edit.onclick = function() {
-      // redirect to modify set page
       location.hash = MOD_PAGE_HASH + id;
       mainPage.classList.add('hide');
       modifyExistSetPage.classList.remove('hide');
@@ -164,7 +153,6 @@ saveBtn.onclick = function() {
       modifyExistSetPage.append(editName);
       newSave.addEventListener('click', newsave);
       newCancel.onclick = function() {
-        ///redirect to new without saving
         location.hash = MAIN_PAGE_HASH;
         mainPage.classList.remove('hide');
         modifyExistSetPage.classList.add('hide');
@@ -196,11 +184,9 @@ saveBtn.onclick = function() {
         if (editDef.value) {
           target.querySelector('.definition-input').innerHTML = editDef.value;
         }
-        //redirect to main page
         location.hash = MAIN_PAGE_HASH;
         mainPage.classList.remove('hide');
         modifyExistSetPage.classList.add('hide');
-
         modifyExistSetPage.removeChild(editName);
         modifyExistSetPage.removeChild(editTerm);
         modifyExistSetPage.removeChild(editDef);
@@ -216,12 +202,7 @@ cancelBtn.onclick = function() {
   if (termContainer) {
     termContainer.classList.add('hide');
   }
-  // redirect without save to main page
   mainPage.classList.remove('hide');
   addNewSetPage.classList.add('hide');
   location.hash = MAIN_PAGE_HASH;
 };
-
-window.addEventListener('hashchange', function(e) {
-  window.location.href = e.newURL;
-});
